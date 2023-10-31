@@ -9,6 +9,8 @@ public class Title {
         this.name = name;
         this.subName = subName;
     }
+    public Title() {
+    }
 
     public String getName() {
         return name;

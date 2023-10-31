@@ -15,8 +15,6 @@ import java.util.List;
 public class BookBeanConfig {
     @Bean
     public Book book1() {
-
         return new Book();
     }
-
 }
