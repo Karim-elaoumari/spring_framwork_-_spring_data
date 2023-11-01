@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-      <bean id="employerService" class="com.springo.controller.DepartementController"/>
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.springo"/>
+    <import resource="db-beans-config.xml"/>
+    <bean id="departementService" class="com.springo.service.departement.DepartementServiceImpl">
+        <constructor-arg ref="departementRepository"/>
+    </bean>
+    <bean id="departementController" class="com.springo.controller.DepartementController">
+        <constructor-arg ref="departementService"></constructor-arg>
+    </bean>
 </beans>
