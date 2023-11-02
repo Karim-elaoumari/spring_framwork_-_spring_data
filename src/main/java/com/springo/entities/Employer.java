@@ -1,9 +1,15 @@
 package com.springo.entities;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Employer {
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
+    @OneToOne
     private Departement departement;
 
     public Employer() {
